@@ -4,6 +4,7 @@ X_test.csv
 y_test.csv
 
 # Notebooks + cache
+fraud.ipynb
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
