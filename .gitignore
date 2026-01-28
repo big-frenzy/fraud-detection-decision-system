@@ -1,0 +1,13 @@
+# Large / local-only files
+creditcard.csv
+X_test.csv
+y_test.csv
+
+# Notebooks + cache
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# OS noise
+.DS_Store
+
