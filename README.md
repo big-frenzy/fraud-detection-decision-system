@@ -16,11 +16,11 @@ An end-to-end fraud detection decision-support system that outputs **ALLOW / REV
 ### Example: BLOCK (high confidence fraud)
 ![BLOCK Example](screenshots/03_block_example.png)
 
-### Example: REVIEW (send to human review)
-![REVIEW Example](screenshots/04_review_example.png)
-
 ### Example: ALLOW (low risk transaction)
-![ALLOW Example](screenshots/05_allow_example.png)
+![ALLOW Example](screenshots/04_allow_example.png)
+
+### Example: REVIEW (send to human review)
+![REVIEW Example](screenshots/05_review_example.png)
 
 ## What this is
 
