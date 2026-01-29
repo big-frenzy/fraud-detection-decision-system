@@ -8,19 +8,19 @@ An end-to-end fraud detection decision-support system that outputs **ALLOW / REV
 ## Screenshots
 
 ### Overview (Policy + thresholds)
-![Overview](screenshots/01_overview.png)
+![Overview](screenshots/01_app_overview.png)
 
 ### Global Feature Importance
-![Feature Importance](screenshots/02_feature_importance.png)
+![Feature Importance](screenshots/02_global_feature_importance.png)
 
 ### Example: BLOCK (high confidence fraud)
-![BLOCK Example](screenshots/03_block.png)
+![BLOCK Example](screenshots/03_block_example.png)
 
 ### Example: REVIEW (send to human review)
-![REVIEW Example](screenshots/04_review.png)
+![REVIEW Example](screenshots/04_review_example.png)
 
 ### Example: ALLOW (low risk transaction)
-![ALLOW Example](screenshots/05_allow.png)
+![ALLOW Example](screenshots/05_allow_example.png)
 
 ## What this is
 
