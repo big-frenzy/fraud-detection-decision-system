@@ -104,6 +104,7 @@ BLOCK_EXAMPLE_IDX = 14920
 # Manual input mode
 st.subheader("Manual Input (All Features)")
 st.caption("Enter feature values manually if you don't have demo CSVs.")
+st.caption("Note: zeros are not a realistic transaction. Use the example buttons for meaningful tests.")
 
 # Persist manual values across reruns
 if "manual_values" not in st.session_state:
