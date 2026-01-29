@@ -55,12 +55,20 @@ st.subheader("Demo Mode")
 st.caption("Pick a transaction index from X_test.csv to test quickly.")
 
 demo_available = False
+examples_available = False
+
 try:
     X_test = pd.read_csv("X_test.csv", index_col=0)
     y_test = pd.read_csv("y_test.csv", index_col=0).iloc[:, 0]
     demo_available = True
 except Exception:
     demo_available = False
+
+try:
+    X_examples = pd.read_csv("examples.csv", index_col=0)
+    examples_available = True
+except Exception:
+    examples_available = False
 
 if demo_available:
     idx = st.number_input("Transaction index (row id)", value=int(X_test.index[0]), step=1)
@@ -105,29 +113,30 @@ st.write("Quick load examples into Manual Input:")
 c1, c2, c3 = st.columns(3)
 
 def load_row_into_manual(idx: int):
-    row = X_test.loc[idx, feature_columns]
+    row = X_examples.loc[idx, feature_columns]
     st.session_state.manual_values = {col: float(row[col]) for col in feature_columns}
 
+# Buttons
 with c1:
     if st.button("Load ALLOW example"):
-        if demo_available and (ALLOW_EXAMPLE_IDX in X_test.index):
+        if examples_available and (ALLOW_EXAMPLE_IDX in X_examples.index):
             load_row_into_manual(ALLOW_EXAMPLE_IDX)
         else:
-            st.info("ALLOW example requires X_test.csv (demo mode).")
+            st.info("ALLOW example not available yet.")
 
 with c2:
     if st.button("Load REVIEW example"):
-        if demo_available and (REVIEW_EXAMPLE_IDX in X_test.index):
+        if examples_available and (REVIEW_EXAMPLE_IDX in X_examples.index):
             load_row_into_manual(REVIEW_EXAMPLE_IDX)
         else:
-            st.info("REVIEW example requires X_test.csv (demo mode).")
+            st.info("REVIEW example not available yet.")
 
 with c3:
     if st.button("Load BLOCK example"):
-        if demo_available and (BLOCK_EXAMPLE_IDX in X_test.index):
+        if examples_available and (BLOCK_EXAMPLE_IDX in X_examples.index):
             load_row_into_manual(BLOCK_EXAMPLE_IDX)
         else:
-            st.info("BLOCK example requires X_test.csv (demo mode).")
+            st.info("BLOCK example not available yet.")
 
 input_data = {}
 for col in feature_columns:
