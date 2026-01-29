@@ -7,7 +7,7 @@ An end-to-end fraud detection decision-support system that outputs **ALLOW / REV
 
 Dataset used for model training: Credit Card Fraud Detection dataset (Kaggle, ULB).
 
-🔗 https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data
+🔗 https://kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 ## Why Random Forest?
 
