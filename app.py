@@ -88,13 +88,56 @@ else:
 
 st.divider()
 
+# Fixed demo examples (must exist in X_test.csv)
+ALLOW_EXAMPLE_IDX = 43800
+REVIEW_EXAMPLE_IDX = 12890
+BLOCK_EXAMPLE_IDX = 14920
+
 # Manual input mode
 st.subheader("Manual Input (All Features)")
 st.caption("Enter feature values manually if you don't have demo CSVs.")
 
+# Persist manual values across reruns
+if "manual_values" not in st.session_state:
+    st.session_state.manual_values = {col: 0.0 for col in feature_columns}
+
+st.write("Quick load examples into Manual Input:")
+c1, c2, c3 = st.columns(3)
+
+def load_row_into_manual(idx: int):
+    row = X_test.loc[idx, feature_columns]
+    st.session_state.manual_values = {col: float(row[col]) for col in feature_columns}
+
+with c1:
+    if st.button("Load ALLOW example"):
+        if demo_available and (ALLOW_EXAMPLE_IDX in X_test.index):
+            load_row_into_manual(ALLOW_EXAMPLE_IDX)
+        else:
+            st.info("ALLOW example requires X_test.csv (demo mode).")
+
+with c2:
+    if st.button("Load REVIEW example"):
+        if demo_available and (REVIEW_EXAMPLE_IDX in X_test.index):
+            load_row_into_manual(REVIEW_EXAMPLE_IDX)
+        else:
+            st.info("REVIEW example requires X_test.csv (demo mode).")
+
+with c3:
+    if st.button("Load BLOCK example"):
+        if demo_available and (BLOCK_EXAMPLE_IDX in X_test.index):
+            load_row_into_manual(BLOCK_EXAMPLE_IDX)
+        else:
+            st.info("BLOCK example requires X_test.csv (demo mode).")
+
 input_data = {}
 for col in feature_columns:
-    input_data[col] = st.number_input(col, value=0.0)
+    input_data[col] = st.number_input(
+        col,
+        value=float(st.session_state.manual_values.get(col, 0.0))
+    )
+
+# keep state updated
+st.session_state.manual_values = input_data
 
 X_manual = pd.DataFrame([input_data], columns=feature_columns)
 
