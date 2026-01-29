@@ -5,7 +5,37 @@
 
 An end-to-end fraud detection decision-support system that outputs **ALLOW / REVIEW / BLOCK** based on predicted fraud risk.
 
+## Why Random Forest?
+
+Handles non-linearity
+
+Robust to feature scaling
+
+Strong baseline for tabular fraud data
+
+Interpretable via feature importance
+
+This project goes beyond binary fraud classification by implementing a triage-based decision system. Instead of labeling transactions as simply “fraud” or “normal”, the model outputs ALLOW, REVIEW, or BLOCK decisions based on calibrated probability thresholds. This design reflects real-world financial systems where uncertain cases are routed to human analysts to minimize harm to legitimate users.
+
+## Screenshots
+
+### Overview (Policy + thresholds)
+![Overview](screenshots/01_app_overview.png)
+
+### Global Feature Importance
+![Feature Importance](screenshots/02_global_feature_importance.png)
+
+### Example: BLOCK (high confidence fraud)
+![BLOCK Example](screenshots/03_block_example.png)
+
+### Example: ALLOW (low risk transaction)
+![ALLOW Example](screenshots/04_allow_example.png)
+
+### Example: REVIEW (send to human review)
+![REVIEW Example](screenshots/05_review_example.png)
+
 ## What this is
+
 Instead of only predicting fraud vs non-fraud, the system estimates a **fraud probability** and applies a triage policy:
 
 - **ALLOW**: probability < t_review  
