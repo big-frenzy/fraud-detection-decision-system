@@ -9,6 +9,12 @@ An end-to-end fraud detection decision-support system that outputs **ALLOW / REV
 
 This project goes beyond binary fraud classification by implementing a triage-based decision system. Instead of labeling transactions as simply “fraud” or “normal”, the model outputs ALLOW, REVIEW, or BLOCK decisions based on calibrated probability thresholds. This design reflects real-world financial systems where uncertain cases are routed to human analysts to minimize harm to legitimate users.
 
+”Why Random Forest?”
+Handles non-linearity
+Robust to feature scaling
+Strong baseline for tabular fraud data
+Interpretable via feature importance
+
 ### Overview (Policy + thresholds)
 ![Overview](screenshots/01_app_overview.png)
 
